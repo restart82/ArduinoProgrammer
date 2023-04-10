@@ -1,3 +1,4 @@
+uint8_t out_data = 0b00000000;
 
 void setup() {
   // put your setup code here, to run once:
@@ -32,15 +33,16 @@ void loop() {
     digitalWrite(24, pb2);
     digitalWrite(25, power);
 
-    uint8_t out_data;
-
+    
     //заполняем выходной байт с соответствующих пинов
     bitWrite(out_data, 0, digitalRead(26));
     bitWrite(out_data, 1, digitalRead(27));
     bitWrite(out_data, 2, digitalRead(28));
     bitWrite(out_data, 3, digitalRead(29));
     
-    Serial.print(out_data);
+    //Serial.print(out_data);
+    Serial.write(out_data);
+
     //Serial.print(pb0);
     //Serial.print(pb1);
     //Serial.print(pb2);
